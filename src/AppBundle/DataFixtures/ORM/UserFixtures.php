@@ -33,6 +33,7 @@ class UserFixtures extends Fixture
         $user_manager = $this->container->get('fos_user.user_manager');
         $user_manager->updateUser($user);
 
-
+        $this->setReference("kendoctor", $user);
     }
+
 }

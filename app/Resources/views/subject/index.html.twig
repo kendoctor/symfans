@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Subjects list</h2>
+    <br>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'Id', 's.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Title', 's.title') }}</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Status</th>
+                <th>Price</th>
+                <th>Viewmode</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subject in pagination %}
+            <tr>
+                <td><a href="{{ path('admin_subject_show', { 'id': subject.id }) }}">{{ subject.id }}</a></td>
+                <td>{{ subject.title }}</td>
+                <td>{{ subject.createdAt | date("Y-m-d") }}</td>
+                <td>{{ subject.updatedAt | date("Y-m-d") }}</td>
+                <td>{{ subject.statusName }}</td>
+                <td>{{ subject.price | number_format(2, '.', ',') }}</td>
+                <td>{{ subject.viewModeName }}</td>
+                <td>
+                        <a class="btn btn-info btn-sm" href="{{ path('admin_subject_show', { 'id': subject.id }) }}">show</a>
+                        <a class="btn btn-info btn-sm" href="{{ path('admin_subject_edit', { 'id': subject.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+{% endblock %}

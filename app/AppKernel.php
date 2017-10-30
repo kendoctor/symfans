@@ -17,6 +17,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new \Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
 
         ];
 

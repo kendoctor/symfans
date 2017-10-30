@@ -5,9 +5,84 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset("/css/bootstrap.min.css") }}">
+        <link rel="stylesheet" href="{{ asset("/css/custom.css") }}">
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <style>
+        .app-body {
+            margin-top: 56px;
+            display: flex;
+            //flex-direction: row;
+        }
+
+        .app-body .sidebar
+        {
+            flex: 0 0 250px;
+            overflow-x: hidden;
+
+        }
+
+        .sidebar-fixed
+        {
+            width:250px;
+            position: fixed;
+
+        }
+
+        .app-body .main {
+            //margin-left: 250px;
+            -ms-flex: 1;
+            flex: 1 1;
+            min-width: 0;
+            padding: 1rem 2rem;
+            //border-left:1px solid #F2F2F2;
+        }
+
+    </style>
+    <body  class="">
+
+    <header class="app-header fixed-top">
+        <nav class="navbar  navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Symfans</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div class="app-body">
+        <div class="sidebar" >
+            <div class="sidebar-fixed">
+                <div class="list-group list-group-flush">
+                    <a href="{{ path("admin_subject_new") }}" class="list-group-item list-group-item-action">Create Subject</a>
+                    <a href="{{ path("admin_subject_index") }}" class="list-group-item list-group-item-action">Subjects</a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
         {% block javascripts %}{% endblock %}
+    <script type="text/javascript" src="{{ asset("/js/jquery.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("/js/popper.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("/js/bootstrap.min.js") }}"></script>
     </body>
 </html>

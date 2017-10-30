@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3>{{ subject.title }}</h3>
+    <hr>
+    <div>
+        {{ subject.body | raw  }}
+    </div>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_subject_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_subject_edit', { 'id': subject.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

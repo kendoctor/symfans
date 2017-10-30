@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
@@ -24,6 +25,15 @@ class User extends BaseUser
 
 
     /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="Subject", mappedBy="createdBy")
+     *
+     */
+    protected $subjects;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -32,5 +42,24 @@ class User extends BaseUser
     {
         return $this->id;
     }
+
+    /**
+     * @return Collection
+     */
+    public function getSubjects()
+    {
+        return $this->subjects;
+    }
+
+    /**
+     * @param Collection $subjects
+     */
+    public function setSubjects($subjects)
+    {
+        $this->subjects = $subjects;
+    }
+
+
+
 }
 

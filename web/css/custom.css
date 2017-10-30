@@ -1,0 +1,22 @@
+
+.app-header.navbar {
+    position: relative;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 55px;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #c2cfd6;
+}
+
+.app-header {
+    -ms-flex: 0 0 55px;
+    flex: 0 0 55px;
+}
+
+.header-fixed .app-header {
+    position: fixed;
+    z-index: 1020;
+    width: 100%;
+}
